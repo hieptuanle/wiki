@@ -21,7 +21,7 @@
                   v-spacer
                 v-card-text.text-center
                   h1.display-1.indigo--text.py-2 {{ siteTitle }}
-                  template(v-if='screen === "login"')
+                  //- template(v-if='screen === "login"')
                     v-text-field.mt-3(
                       solo
                       flat
@@ -46,7 +46,7 @@
                       :placeholder='$t("auth:fields.password")'
                       @keyup.enter='login'
                     )
-                  template(v-else-if='screen === "tfa"')
+                  //- template(v-else-if='screen === "tfa"')
                     .body-2 Enter the security code generated from your trusted device:
                     v-text-field.centered.mt-2(
                       solo
@@ -58,7 +58,7 @@
                       :placeholder='$t("auth:tfa.placeholder")'
                       @keyup.enter='verifySecurityCode'
                     )
-                  template(v-else-if='screen === "changePwd"')
+                  //- template(v-else-if='screen === "changePwd"')
                     .body-2 {{$t('auth:changePwd.instructions')}}
                     v-text-field.mt-2(
                       type='password'
@@ -80,7 +80,7 @@
                       :placeholder='$t(`auth:changePwd.newPasswordVerifyPlaceholder`)'
                       @keyup.enter='changePassword'
                     )
-                  template(v-else-if='screen === "forgot"')
+                  //- template(v-else-if='screen === "forgot"')
                     .body-2 {{ $t('auth:forgotPasswordSubtitle') }}
                     v-text-field.mt-3(
                       solo
@@ -92,7 +92,7 @@
                       v-model='username'
                       :placeholder='$t("auth:fields.email")'
                       )
-                v-card-actions.pb-4
+                //- v-card-actions.pb-4
                   v-spacer
                   v-btn(
                     width='100%'
@@ -139,20 +139,20 @@
                     :loading='isLoading'
                     ) {{ $t('auth:sendResetPassword') }}
                   v-spacer
-                v-card-actions.pb-3(v-if='screen === "login" && selectedStrategy.key === "local"')
+                //- v-card-actions.pb-3(v-if='screen === "login" && selectedStrategy.key === "local"')
                   v-spacer
                   a.caption(@click.stop.prevent='forgotPassword', href='#forgot') {{ $t('auth:forgotPasswordLink') }}
                   v-spacer
-                v-card-actions.pb-3(v-else-if='screen === "forgot"')
+                //- v-card-actions.pb-3(v-else-if='screen === "forgot"')
                   v-spacer
                   a.caption(@click.stop.prevent='screen = `login`', href='#cancelforgot') {{ $t('auth:forgotPasswordCancel') }}
                   v-spacer
                 template(v-if='screen === "login" && isSocialShown')
                   v-divider
                   v-card-text.grey.lighten-4.text-center
-                    .pb-2.body-2.text-xs-center.grey--text.text--darken-2 {{ $t('auth:orLoginUsingStrategy') }}
+                    .pb-2.body-2.text-xs-center.grey--text.text--darken-2 {{ $t('đăng nhập bằng') }}
                     v-btn.mx-1.social-login-btn(
-                      v-for='strategy in strategies', :key='strategy.key'
+                      v-for='strategy in [strategies[0]]', :key='strategy.key'
                       large
                       @click='selectStrategy(strategy)'
                       dark

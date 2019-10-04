@@ -25,7 +25,7 @@ services:
     networks:
       - wikinet
     ports:
-      - "3001:8080"
+      - "3035:8080"
 
   solr:
     image: solr:7-alpine
@@ -52,7 +52,7 @@ services:
     networks:
       - wikinet
     ports:
-      - "3000:3000"
+      - "3034:3000"
     volumes:
       - .:/wiki
       - /wiki/node_modules
