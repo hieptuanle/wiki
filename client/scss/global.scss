@@ -30,3 +30,21 @@ $display-breakpoints: (
   'lg-and-up': 'only screen and (min-width: #{map-get($grid-breakpoints, 'lg')})',
   'xl-only': 'only screen and (min-width: #{map-get($grid-breakpoints, 'xl')})'
 ) !default;
+
+.v-content .contents table {
+  tr td {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+  }
+
+  tr:first-child td {
+    background-color: grey;
+    color: white;
+    font-weight: bold;
+    border-top: 1px solid black;
+  }
+
+  tr td:last-child {
+    border-right: 1px solid black;
+  }
+}
